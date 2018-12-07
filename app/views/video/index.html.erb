@@ -1,0 +1,25 @@
+<h1>VideoPage</h1>
+<p>Bury clips what you like</p>
+
+YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
+HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
+
+<%= form_tag "/video" do %>
+  <textarea name="htmlcode" rows="4" cols="100"></textarea><br>
+  <input type="submit" value="Push">
+<% end %>
+<br>
+
+
+<br>===========================================<br>
+<i class="fa fa-plus"></i>
+<div class="clips">
+  <% @videos.each do |video| %>
+    <a class="fa fa-plus clip">Change Size<br><%= video.code.html_safe %></a>
+  <% end %>
+</div>
+
+<br>=============================================<br>
+
+
+
