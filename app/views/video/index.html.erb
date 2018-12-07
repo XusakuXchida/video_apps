@@ -12,10 +12,12 @@ HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.
 
 
 <br>===========================================<br>
-<i class="fa fa-plus"></i>
+
 <div class="clips">
   <% @videos.each do |video| %>
-    <a class="fa fa-plus clip">Change Size<br><%= video.code.html_safe %></a>
+    <p class="fa fa-plus clip"><br>
+      <i class="change-size">Change Size</i><br><%= video.code.html_safe %>
+    </p>
   <% end %>
 </div>
 
