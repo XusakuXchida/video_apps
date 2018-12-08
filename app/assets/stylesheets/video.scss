@@ -2,9 +2,24 @@
   background-color: lightgray;
 }
 
+.description {
+  padding: 10px 10px;
+}
 .error-msg {
   color: red;
   display: none;
+}
+
+#clips {
+  text-align: center;
+}
+
+.fa-plus {
+  color: lightgray;
+}
+
+.fa-plus span {
+  color: black;
 }
 
 .clip-box {

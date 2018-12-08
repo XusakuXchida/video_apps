@@ -1,8 +1,7 @@
 <section class="videopage">
-  <h1>VideoPage</h1>
-  <p>Bury clips what you like</p>
-
   <div id="description">
+    <h1>VideoPage</h1>
+    <p>Bury clips what you like</p>
     YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
     HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
   </div>
@@ -19,7 +18,7 @@
 
   <br>===========================================<br>
 
-  <div class="clips">
+  <div id="clips">
     <% @videos.each do |video| %>
       <i class="fa fa-plus clip-box">
         <span class="change-size">Change Size/
