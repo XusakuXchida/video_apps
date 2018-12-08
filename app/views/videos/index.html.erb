@@ -1,43 +1,43 @@
-<h1>VideoPage</h1>
-<p>Bury clips what you like</p>
+<section class="videopage">
+  <h1>VideoPage</h1>
+  <p>Bury clips what you like</p>
 
-<div id="description">
-  YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
-  HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
-</div>
-
-<%= form_tag do %>
-  <textarea name="htmlcode" rows="4" cols="100" id="htmlcode"></textarea><br>
-  <input type="submit" value="Push" id="push">
-  <div class="error-msg">
-    HTMLCode is empty!!
+  <div id="description">
+    YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
+    HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
   </div>
-<% end %>
-<br>
 
-
-<br>===========================================<br>
-
-<div class="clips">
-  <% @videos.each do |video| %>
-    <i class="fa fa-plus clip-box">
-      <span class="change-size">Change Size/
-        <input type="radio" name=<%= "size#{video.id}" %> value="S"> S,
-        <input type="radio" name=<%= "size#{video.id}" %> value="M" checked> M,
-        <input type="radio" name=<%= "size#{video.id}" %> value="L"> L,
-        /
-        <input type="text" id="text">
-        <i class="fa fa-caret-square-left"></i><i class="fa fa-caret-square-right"></i>
-        <%= link_to video_path(video.id), method: "delete", style: "color: gray;" do %>
-          <i class="fa fa-trash-alt"></i>
-        <% end %>
-      </span><br>
-      <div class="clip"><%= video.code.html_safe %></div>
-    </i>
+  <%= form_tag do %>
+    <textarea name="htmlcode" rows="4" cols="100" id="htmlcode"></textarea><br>
+    <input type="submit" value="Push" id="push">
+    <div class="error-msg">
+      HTMLCode is empty!!
+    </div>
   <% end %>
-</div>
-
-<br>=============================================<br>
+  <br>
 
 
+  <br>===========================================<br>
 
+  <div class="clips">
+    <% @videos.each do |video| %>
+      <i class="fa fa-plus clip-box">
+        <span class="change-size">Change Size/
+          <input type="radio" name=<%= "size#{video.id}" %> value="S"> S,
+          <input type="radio" name=<%= "size#{video.id}" %> value="M" checked> M,
+          <input type="radio" name=<%= "size#{video.id}" %> value="L"> L,
+          /
+          <i class="fa fa-caret-square-left"></i><i class="fa fa-caret-square-right"></i>
+          <%= link_to video_path(video.id), method: "delete", style: "color: gray;" do %>
+            <i class="fa fa-trash-alt"></i>
+          <% end %>
+        </span>
+        <div class="clip">
+          <%= video.code.html_safe %>
+        </div>
+      </i>
+    <% end %>
+  </div>
+
+  <br>=============================================<br>
+</section>
