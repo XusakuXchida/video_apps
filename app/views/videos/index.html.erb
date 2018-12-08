@@ -4,7 +4,7 @@
 YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
 HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
 
-<%= form_tag "/video" do %>
+<%= form_tag do %>
   <textarea name="htmlcode" rows="4" cols="100"></textarea><br>
   <input type="submit" value="Push">
 <% end %>
@@ -16,7 +16,12 @@ HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.
 <div class="clips">
   <% @videos.each do |video| %>
     <i class="fa fa-plus clip-box"><%= video.id %>
-      <span class="change-size">Change Size<input type="text"><i class="fa fa-trash-alt"></i></span><br>
+      <span class="change-size">Change Size<input type="text">
+        <i class="fa fa-caret-square-left"></i><i class="fa fa-caret-square-right"></i>
+        <%= link_to video_path(video.id), method: "delete", style: "color: gray;" do %>
+          <i class="fa fa-trash-alt"></i>
+        <% end %>
+      </span><br>
       <div class="clip"><%= video.code.html_safe %></div>
     </i>
   <% end %>
