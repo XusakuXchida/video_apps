@@ -1,3 +1,22 @@
+.clip-box {
+  padding: 15px 5px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 .clip {
-  padding: 10px 5px;
+  padding: 5px 2px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.change-size {
+  display: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.fa-trash-alt {
+  float: right;
+  padding-right: 15px;
 }

@@ -15,9 +15,10 @@ HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.
 
 <div class="clips">
   <% @videos.each do |video| %>
-    <p class="fa fa-plus clip"><br>
-      <i class="change-size">Change Size</i><br><%= video.code.html_safe %>
-    </p>
+    <i class="fa fa-plus clip-box"><%= video.id %>
+      <span class="change-size">Change Size<input type="text"><i class="fa fa-trash-alt"></i></span><br>
+      <div class="clip"><%= video.code.html_safe %></div>
+    </i>
   <% end %>
 </div>
 
