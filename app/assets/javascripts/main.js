@@ -8,4 +8,13 @@ $(function(){
   $('.fa-trash-alt').click(function(){
     alert('このVideoをPageから外します');
   })
+
+  $('form').submit(function(){
+    if($('#htmlcode').val() == '') {
+      $('.error-msg').css('display', 'block');
+      return false;
+    }
+  });
+
+
 });
