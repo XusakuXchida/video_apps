@@ -12,7 +12,7 @@ class VideosController < ApplicationController
     video = Video.new
     video.code = params[:htmlcode]
     video.save
-    # redirect_to action: "index"
+    redirect_to action: "index"
   end
 
   def destroy
