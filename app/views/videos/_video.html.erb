@@ -1,0 +1,15 @@
+<i class="fa fa-plus clip-box" id="video_<%= video.id %>">
+  <span class="change-size">Change Size/
+    <input type="radio" name=<%= "size#{video.id}" %> value="S"> S,
+    <input type="radio" name=<%= "size#{video.id}" %> value="M" checked> M,
+    <input type="radio" name=<%= "size#{video.id}" %> value="L"> L,
+    /
+    <i class="fa fa-caret-square-left"></i><i class="fa fa-caret-square-right"></i>
+    <%= link_to video_path(video.id), method: "delete", style: "color: gray;", remote: true do %>
+      <i class="fa fa-trash-alt"></i>
+    <% end %>
+  </span>
+  <div class="clip">
+    <%= video.code.html_safe %>
+  </div>
+</i>

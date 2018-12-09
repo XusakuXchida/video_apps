@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
   def index
     @videos = Video.all
+
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def create
@@ -11,8 +16,9 @@ class VideosController < ApplicationController
   end
 
   def destroy
-    @code = Video.find(params[:id])
-    @code.destroy
+    video = Video.find(params[:id])
+    video.destroy
+    render json: { video: @video }
     # redirect_to action: "index"
   end
 end

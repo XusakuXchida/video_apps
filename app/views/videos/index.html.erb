@@ -14,28 +14,13 @@
     </div>
   <% end %>
   <br>
-
+  <%= @videos.pluck(:id) %>
+  <div id="test">test</div>
 
   <br>===========================================<br>
 
   <div id="clips">
-    <% @videos.each do |video| %>
-      <i class="fa fa-plus clip-box">
-        <span class="change-size">Change Size/
-          <input type="radio" name=<%= "size#{video.id}" %> value="S"> S,
-          <input type="radio" name=<%= "size#{video.id}" %> value="M" checked> M,
-          <input type="radio" name=<%= "size#{video.id}" %> value="L"> L,
-          /
-          <i class="fa fa-caret-square-left"></i><i class="fa fa-caret-square-right"></i>
-          <%= link_to video_path(video.id), method: "delete", style: "color: gray;" do %>
-            <i class="fa fa-trash-alt"></i>
-          <% end %>
-        </span>
-        <div class="clip">
-          <%= video.code.html_safe %>
-        </div>
-      </i>
-    <% end %>
+    <%= render @videos %>
   </div>
 
   <br>=============================================<br>

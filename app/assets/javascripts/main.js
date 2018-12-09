@@ -5,9 +5,16 @@ $(function(){
     $(this).find('.change-size').fadeOut();
   });
 
-  $('.fa-trash-alt').click(function(){
+  // $('.fa-trash-alt').click(function(){
+  //   alert('このVideoをPageから外します');
+  //   // $(this).parent('span').next('.clip').fadeOut();
+  // });
+
+  $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
     alert('このVideoをPageから外します');
-  })
+    $(this).parent('span').parent('i').fadeOut();
+    $('#test').text('delete!!');
+  });
 
   $('form').submit(function(){
     if($('#htmlcode').val() == '') {
