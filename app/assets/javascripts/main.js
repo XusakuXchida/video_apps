@@ -9,17 +9,27 @@ $(function(){
   //   alert('このVideoをPageから外します');
   //   // $(this).parent('span').next('.clip').fadeOut();
   // });
-
+  // ゴミ箱clickで動画削除
   $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
     alert('このVideoをPageから外します');
     $(this).parent('span').parent('i').fadeOut();
-    $('#test').text('delete!!');
   });
 
+  //
+  // $('form').on('ajax:success'), function(xhr,data,status){
+  //   // var video = $('#addvideo').text();
+  //   alert('video');
+  //   //$('#addvideo2').replaceWith(video);
+  // }
+
+  // 空欄でpushボタンclickするとエラーメッセージ
   $('form').submit(function(){
     if($('#htmlcode').val() == '') {
       $('.error-msg').css('display', 'block');
       return false;
+    }else{
+      var code = $('#htmlcode').val();
+      $('#addvideo').attr('data', code);
     }
   });
 

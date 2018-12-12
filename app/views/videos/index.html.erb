@@ -6,7 +6,7 @@
     HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
   </div>
 
-  <%= form_tag do %>
+  <%= form_tag request.url, remote: true do %>
     <textarea name="htmlcode" rows="4" cols="100" id="htmlcode"></textarea><br>
     <input type="submit" value="Push" id="push">
     <div class="error-msg">
@@ -14,8 +14,8 @@
     </div>
   <% end %>
   <br>
-<!--   <div id="videoids"><%= @videos.pluck(:id) %></div>
-  <div id="test">test</div> -->
+  <div id="test"></div>
+  <div id="addvideo" data='data'></div>
 
   <br>===========================================<br>
 
