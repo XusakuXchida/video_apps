@@ -12,7 +12,6 @@ class VideosController < ApplicationController
     @video = Video.new
     @video.code = params[:htmlcode]
     @video.save
-    @videos = Video.all
     render :index
     # redirect_to action: "index"
   end
