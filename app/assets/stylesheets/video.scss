@@ -1,3 +1,4 @@
+// videos index section
 .videopage {
   background-color: lightgray;
 }
@@ -5,9 +6,16 @@
 .description {
   padding: 10px 10px;
 }
+
 .error-msg {
   color: red;
   display: none;
+}
+
+// video space
+
+.push-video-ajax {
+  text-align: center;
 }
 
 #clips {

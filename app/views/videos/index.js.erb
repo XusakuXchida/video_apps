@@ -1,5 +1,6 @@
 $('#test').text("pushed video!!");
 
-var code = $('#addvideo').attr('data');
+$('.push-video-ajax').html("<%= escape_javascript(render 'pushed_video') %>")
+var code = $('#addvideo-codepool').attr('data');
 $('#addvideo').html(code);
 $('#htmlcode').val("");

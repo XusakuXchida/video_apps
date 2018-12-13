@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   def index
     @videos = Video.all
-
+    @video = nil
     # respond_to do |format|
     #   format.html
     #   format.js

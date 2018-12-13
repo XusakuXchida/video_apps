@@ -15,12 +15,19 @@
   <% end %>
   <br>
   <div id="test"></div>
-  <div id="addvideo" data='data'></div>
+  <div id="addvideo-codepool"></div>
 
   <br>===========================================<br>
 
-  <div id="clips">
-    <%= render @videos %>
+  <!-- video space -->
+  <div id="video-space">
+    <div class="push-video-ajax">
+      <%= render 'pushed_video' %>
+    </div>
+
+    <div id="clips">
+      <%= render @videos %>
+    </div>
   </div>
 
   <br>=============================================<br>

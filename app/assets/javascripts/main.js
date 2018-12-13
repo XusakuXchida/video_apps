@@ -29,7 +29,7 @@ $(function(){
       return false;
     }else{
       var code = $('#htmlcode').val();
-      $('#addvideo').attr('data', code);
+      $('#addvideo-codepool').attr('data', code);
     }
   });
 
