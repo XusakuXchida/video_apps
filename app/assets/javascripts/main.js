@@ -1,9 +1,12 @@
 $(function(){
+
+  // マウスオーバーでバーを表示
   $('.clip-box').hover(function(){
-    $(this).find('.change-size').fadeIn();
+    $(this).find('.option-bar').fadeIn();
   },function(){
-    $(this).find('.change-size').fadeOut();
+    $(this).find('.option-bar').fadeOut();
   });
+
 
   // $('.fa-trash-alt').click(function(){
   //   alert('このVideoをPageから外します');
@@ -14,6 +17,8 @@ $(function(){
     alert('このVideoをPageから外します');
     $(this).parent('span').parent('i').fadeOut();
   });
+
+
 
   //
   // $('form').on('ajax:success'), function(xhr,data,status){
@@ -33,6 +38,7 @@ $(function(){
     }
   });
 
+  // ラジオボタンで画面の大小切り替え
   $('input[name^="size"]:radio').change(function(){
     var radioval = $(this).val();
     $(this).nextAll('p').text(radioval);
@@ -46,5 +52,36 @@ $(function(){
       $(this).parent('span').next('.clip').find('iframe').attr('width', '720');
       $(this).parent('span').next('.clip').find('iframe').attr('height', '405');
     }
+  });
+
+  // Pushボタンclickしてajax成功すると発火
+  $('form[method="post"]').on('ajax:success', function(event, xhr, settings){
+    $('#ajaxcomplete').text('comp');
+    // マウスオーバーでバーを表示
+    $('.clip-box').hover(function(){
+      $(this).find('.option-bar').fadeIn();
+    },function(){
+      $(this).find('.option-bar').fadeOut();
+    });
+    // ラジオボタンで画面の大小切り替え
+    $('input[name^="size"]:radio').change(function(){
+      var radioval = $(this).val();
+      $(this).nextAll('p').text(radioval);
+      if(radioval == 'S') {
+        $(this).parent('span').next('.clip').find('iframe').attr('width', '400');
+        $(this).parent('span').next('.clip').find('iframe').attr('height', '225');
+      }else if(radioval == 'M') {
+        $(this).parent('span').next('.clip').find('iframe').attr('width', '560');
+        $(this).parent('span').next('.clip').find('iframe').attr('height', '315');
+      }else if(radioval == 'L') {
+        $(this).parent('span').next('.clip').find('iframe').attr('width', '720');
+        $(this).parent('span').next('.clip').find('iframe').attr('height', '405');
+      }
+    });
+    // ゴミ箱clickで動画削除
+    $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
+      alert('このVideoをPageから外します');
+      $(this).parent('span').parent('i').fadeOut();
+    });
   });
 });

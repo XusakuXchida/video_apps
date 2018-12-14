@@ -1,6 +1,6 @@
 <% unless @video == nil %>
   <i class="fa fa-plus clip-box" id="video_<%= @video.id %>"><%= @video.id %>
-    <span class="change-size">Change Size/
+    <span class="option-bar">Change Size/
       <input type="radio" name=<%= "size#{@video.id}" %> value="S"> S,
       <input type="radio" name=<%= "size#{@video.id}" %> value="M" checked> M,
       <input type="radio" name=<%= "size#{@video.id}" %> value="L"> L,
@@ -10,6 +10,6 @@
         <i class="fa fa-trash-alt"></i>
       <% end %>
     </span>
-    <div id="addvideo" data='data'></div>
+    <div id="addvideo" data='data' class="clip"></div>
   </i>
 <% end %>
