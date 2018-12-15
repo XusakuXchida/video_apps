@@ -2,8 +2,9 @@
   <div id="description">
     <h1>VideoPage</h1>
     <p>Bury clips what you like</p>
-    YoutubeのHTMLコードを枠内にコピペしてPushして下さい！<br>
-    HTMLコードの取得方法は<%= link_to 'こちら', 'https://support.google.com/youtube/answer/171780?hl=ja', target: "_blank" %> を参照<br>
+    <div>
+      埋め込みたいYoutube動画のURLを枠内にコピペしてPushして下さい!<br>
+    </div>
   </div>
 
   <%= form_tag request.url, remote: true do %>

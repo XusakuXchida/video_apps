@@ -18,23 +18,19 @@ $(function(){
     $(this).parent('span').parent('i').fadeOut();
   });
 
-
-
-  //
-  // $('form').on('ajax:success'), function(xhr,data,status){
-  //   // var video = $('#addvideo').text();
-  //   alert('video');
-  //   //$('#addvideo2').replaceWith(video);
-  // }
-
   // 空欄でpushボタンclickするとエラーメッセージ
   $('form').submit(function(){
     if($('#htmlcode').val() == '') {
       $('.error-msg').css('display', 'block');
       return false;
     }else{
-      var code = $('#htmlcode').val();
-      $('#addvideo-codepool').attr('data', code);
+      var pushed = $('#htmlcode').val();
+      var url = pushed.match(/https:\/\/www.youtube.com\/watch\?v=(.+)/);
+      var param = url[1]
+      var vid = param.substr(0, 11);
+      var htmlcode = `<iframe width='560' height='315' src='https://www.youtube.com/embed/${vid}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>`
+      $('#addvideo-codepool').attr('data', htmlcode);
+      $('#ajaxcomplete').text(`vid:${vid}`);
     }
   });
 
@@ -56,7 +52,7 @@ $(function(){
 
   // Pushボタンclickしてajax成功すると発火
   $('form[method="post"]').on('ajax:success', function(event, xhr, settings){
-    $('#ajaxcomplete').text('comp');
+    // $('#ajaxcomplete').text('comp');
     // マウスオーバーでバーを表示
     $('.clip-box').hover(function(){
       $(this).find('.option-bar').fadeIn();
